@@ -1,5 +1,9 @@
 'use server'
 
+/**
+ * @link https://jsonplaceholder.typicode.com/guide/
+ */
+
 import axios, { AxiosError } from 'axios'
 import { notFound } from 'next/navigation'
 
@@ -7,17 +11,11 @@ import { incrementRequestCount } from '~/helpers/metrics'
 import type { Post } from '~/repositories/posts/interface'
 import { getPostStub, getPostsStub } from '~/repositories/posts/stub'
 
-/**
- * @link https://jsonplaceholder.typicode.com/guide/
- */
-
-const USE_STUB = false
-
 export const getPosts = async (): Promise<Post[]> => {
   incrementRequestCount('GET_POSTS')
   console.info(`[repository] getPosts`)
 
-  if (USE_STUB && process.env.ENVIRONMENT === 'local') {
+  if (process.env.USE_STUB === 'true') {
     return getPostsStub()
   }
 
@@ -41,7 +39,7 @@ export const getPost = async (id: Post['id']): Promise<Post> => {
   incrementRequestCount('GET_POST')
   console.info(`[repository] getPost`)
 
-  if (USE_STUB && process.env.ENVIRONMENT === 'local') {
+  if (process.env.USE_STUB === 'true') {
     return getPostStub()
   }
 
