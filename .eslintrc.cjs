@@ -15,23 +15,16 @@ module.exports = {
       node: true,
     },
   },
-  plugins: ['sort-destructure-keys'],
+  plugins: ['unused-imports', 'sort-destructure-keys'],
   rules: {
+    'unused-imports/no-unused-imports': 'error',
+    'import/newline-after-import': 'error',
     'import/order': [
       'error',
       {
-        groups: [
-          'builtin',
-          'external',
-          'parent',
-          'sibling',
-          'index',
-          'object',
-          'type',
-        ],
-        pathGroups: [{ pattern: '~/**', group: 'parent', position: 'before' }],
-        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
         alphabetize: { order: 'asc' },
+        pathGroups: [{ pattern: '~/**', group: 'external', position: 'after' }],
       },
     ],
     'sort-destructure-keys/sort-destructure-keys': [

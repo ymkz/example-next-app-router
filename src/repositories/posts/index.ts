@@ -2,6 +2,7 @@
 
 import axios, { AxiosError } from 'axios'
 import { notFound } from 'next/navigation'
+
 import { incrementRequestCount } from '~/helpers/metrics'
 import type { Post } from '~/repositories/posts/interface'
 import { getPostStub, getPostsStub } from '~/repositories/posts/stub'
