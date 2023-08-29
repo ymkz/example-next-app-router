@@ -52,11 +52,9 @@ export const getPost = async (id: Post['id']): Promise<Post> => {
     )
     return response.data
   } catch (err) {
-    if (err instanceof AxiosError) {
-      if (err.response?.status === 404) {
-        console.error(`存在しないPostの取得のため失敗しました id=${id}`)
-        notFound()
-      }
+    if (err instanceof AxiosError && err.response?.status === 404) {
+      console.error(`存在しないPostの取得のため失敗しました id=${id}`)
+      notFound()
     }
 
     console.error(`Postの取得に失敗しました id=${id}`)

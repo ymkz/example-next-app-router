@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import { countByCodePoint } from '~/helpers/string'
 
-describe('countByCodePoint', () => {
+describe(countByCodePoint.name, () => {
   test.each([
     ['', 0],
     ['a', 1],
