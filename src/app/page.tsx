@@ -4,22 +4,22 @@ const IndexPage = () => {
   return (
     <ul>
       <li>
-        <Link prefetch={false} href="/">
+        <Link href="/" prefetch={false}>
           index
         </Link>
       </li>
       <li>
-        <Link prefetch={false} href="/posts">
+        <Link href="/posts" prefetch={false}>
           /posts
         </Link>
       </li>
       <li>
-        <Link prefetch={false} href="/posts/1">
+        <Link href="/posts/1" prefetch={false}>
           /posts/1
         </Link>
       </li>
       <li>
-        <Link prefetch={false} href="/posts/9999">
+        <Link href="/posts/9999" prefetch={false}>
           /posts/9999
         </Link>
       </li>

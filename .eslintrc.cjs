@@ -17,6 +17,9 @@ module.exports = {
   },
   plugins: ['unused-imports', 'sort-destructure-keys'],
   rules: {
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+    'react/jsx-sort-props': ['error', { callbacksLast: true }],
     'unused-imports/no-unused-imports': 'error',
     'import/newline-after-import': 'error',
     'import/order': [
@@ -31,11 +34,6 @@ module.exports = {
       'error',
       { caseSensitive: false },
     ],
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { prefer: 'type-imports' },
-    ],
-    '@typescript-eslint/no-import-type-side-effects': 'error',
   },
   overrides: [
     {
