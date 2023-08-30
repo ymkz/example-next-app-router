@@ -10,6 +10,5 @@
   "scss.validate": false,
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss"],
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "vitest.enable": true
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }

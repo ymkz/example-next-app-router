@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import { getPost } from '~/repositories/posts'
 
 interface PostPageProps {
@@ -8,6 +10,10 @@ interface PostPageProps {
 
 const PostPage = async ({ params }: PostPageProps) => {
   const post = await getPost(Number(params.id))
+
+  if (!post) {
+    notFound()
+  }
 
   return (
     <>

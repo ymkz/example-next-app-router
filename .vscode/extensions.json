@@ -6,7 +6,6 @@
     "esbenp.prettier-vscode",
     "IronGeek.vscode-env",
     "redhat.vscode-yaml",
-    "stylelint.vscode-stylelint",
-    "ZixuanChen.vitest-explorer"
+    "stylelint.vscode-stylelint"
   ]
 }
