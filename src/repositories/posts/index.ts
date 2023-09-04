@@ -1,7 +1,7 @@
 'use server'
 
 /**
- * @link https://jsonplaceholder.typicode.com/guide/
+ * @see https://jsonplaceholder.typicode.com/guide/
  */
 
 import axios from 'axios'
@@ -12,6 +12,7 @@ import { getPostStub, getPostsStub } from '~/repositories/posts/stub'
 
 export const getPosts = async (): Promise<Post[]> => {
   console.info(`[repository] ${getPosts.name}`)
+  incrementErrorCount('get_posts_error')
 
   if (process.env.USE_STUB === 'true') {
     return getPostsStub()
