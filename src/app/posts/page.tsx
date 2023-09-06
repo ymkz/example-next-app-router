@@ -1,6 +1,9 @@
+import { accessLogging } from '~/helpers/logger'
 import { getPosts } from '~/repositories/posts'
 
 const PostsPage = async () => {
+  accessLogging()
+
   const posts = await getPosts()
 
   return (

@@ -1,5 +1,5 @@
 import { ValueType } from '@opentelemetry/api'
-import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-grpc'
+import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-proto'
 import { Resource } from '@opentelemetry/resources'
 import {
   PeriodicExportingMetricReader,
@@ -22,10 +22,10 @@ meterProvider.addMetricReader(
   }),
 )
 
-const meter = meterProvider.getMeter('example-exporter-collector')
+const meter = meterProvider.getMeter('example-meter')
 
-const errorCounter = meter.createCounter('error_counter', {
-  description: 'counter of a error by code',
+const errorCounter = meter.createCounter('error_count', {
+  description: 'Count number of a error by code',
   unit: 'counts',
   valueType: ValueType.INT,
 })

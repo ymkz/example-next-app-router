@@ -1,6 +1,10 @@
 import Link from 'next/link'
 
+import { accessLogging } from '~/helpers/logger'
+
 const IndexPage = () => {
+  accessLogging()
+
   return (
     <ul>
       <li>
