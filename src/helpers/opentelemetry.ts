@@ -9,13 +9,11 @@ import { PinoInstrumentation } from '@opentelemetry/instrumentation-pino'
 import { Resource } from '@opentelemetry/resources'
 import { PeriodicExportingMetricReader } from '@opentelemetry/sdk-metrics'
 import { NodeSDK } from '@opentelemetry/sdk-node'
-import { NoopSpanProcessor } from '@opentelemetry/sdk-trace-node'
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions'
 
 const sdk = new NodeSDK({
   instrumentations: [new PinoInstrumentation(), new HttpInstrumentation()],
   traceExporter: new OTLPTraceExporter(),
-  spanProcessor: new NoopSpanProcessor(),
   metricReader: new PeriodicExportingMetricReader({
     exporter: new OTLPMetricExporter(),
   }),
