@@ -2,7 +2,7 @@
   "private": true,
   "name": "example-next-app-router",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "next dev",
