@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const IndexPage = () => {
+export default async function page() {
   return (
     <ul>
       <li>
@@ -23,8 +23,12 @@ const IndexPage = () => {
           /posts/9999
         </Link>
       </li>
+      <li>
+        {/* @ts-ignore */}
+        <Link href="/notfound" prefetch={false}>
+          /notfound
+        </Link>
+      </li>
     </ul>
   )
 }
-
-export default IndexPage

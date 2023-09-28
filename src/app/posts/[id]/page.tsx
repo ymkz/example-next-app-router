@@ -1,31 +1,34 @@
 import { notFound } from 'next/navigation'
 
+import { ErrorRender } from '~/components/error'
 import { getPost } from '~/repositories/posts'
 
-type PostPageProps = {
+type Props = {
   readonly params: {
     id: string
   }
 }
 
-const PostPage = async ({ params }: PostPageProps) => {
+export default async function page({ params }: Props) {
   const post = await getPost(Number(params.id))
 
-  if (!post) {
-    notFound()
+  if (post.isFailure) {
+    if (post.error.status === 404) {
+      notFound()
+    } else {
+      return <ErrorRender error={post.error} />
+    }
   }
 
   return (
     <>
       <h1>PostPage</h1>
       <div>
-        <p>userId: {post.userId}</p>
-        <p>id: {post.id}</p>
-        <p>title: {post.title}</p>
-        <p>body: {post.body}</p>
+        <p>userId: {post.value.userId}</p>
+        <p>id: {post.value.id}</p>
+        <p>title: {post.value.title}</p>
+        <p>body: {post.value.body}</p>
       </div>
     </>
   )
 }
-
-export default PostPage

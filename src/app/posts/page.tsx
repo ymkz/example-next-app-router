@@ -1,13 +1,18 @@
+import { ErrorRender } from '~/components/error'
 import { getPosts } from '~/repositories/posts'
 
-const PostsPage = async () => {
+export default async function page() {
   const posts = await getPosts()
 
+  if (posts.isFailure) {
+    return <ErrorRender error={posts.error} />
+  }
+
   return (
-    <>
+    <main>
       <h1>PostsPage</h1>
       <ul>
-        {posts.map((post) => (
+        {posts.value.map((post) => (
           <li key={post.id}>
             <div>
               <p>userId: {post.userId}</p>
@@ -18,8 +23,6 @@ const PostsPage = async () => {
           </li>
         ))}
       </ul>
-    </>
+    </main>
   )
 }
-
-export default PostsPage

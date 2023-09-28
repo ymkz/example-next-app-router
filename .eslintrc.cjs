@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: ['unused-imports'],
   rules: {
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-import-type-side-effects': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/consistent-type-imports': [
@@ -35,12 +36,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ['**/*.test.ts'],
-      rules: {
-        '@typescript-eslint/ban-ts-comment': 'off',
-      },
-    },
-  ],
 }
