@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
+
 import { ErrorRender } from '~/components/error'
 import { getPosts } from '~/repositories/posts'
+
+export const metadata: Metadata = {
+  title: 'Posts - タイトル',
+}
 
 export default async function page() {
   const posts = await getPosts()

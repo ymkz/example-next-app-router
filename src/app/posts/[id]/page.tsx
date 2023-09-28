@@ -1,10 +1,15 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { ErrorRender } from '~/components/error'
 import { getPost } from '~/repositories/posts'
 
+export const metadata: Metadata = {
+  title: 'Post - タイトル',
+}
+
 type Props = {
-  readonly params: {
+  params: {
     id: string
   }
 }
