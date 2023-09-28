@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 
-import { accessLogging } from '~/helpers/logger'
 import { getPost } from '~/repositories/posts'
 
 interface PostPageProps {
@@ -10,8 +9,6 @@ interface PostPageProps {
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
-  accessLogging()
-
   const post = await getPost(Number(params.id))
 
   if (!post) {

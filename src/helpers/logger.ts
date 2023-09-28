@@ -1,10 +1,8 @@
 import dayjs from 'dayjs'
-import { headers } from 'next/headers'
 import { pino } from 'pino'
 
 export const logger = pino({
   enabled: process.env.NODE_ENV !== 'test',
-  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
   timestamp: () => {
     return `,"timestamp":"${dayjs().format('YYYY-MM-DDTHH:mm:ss.SSS')}"`
   },
@@ -17,12 +15,3 @@ export const logger = pino({
     },
   },
 })
-
-export const accessLogging = () => {
-  const headersInstance = headers()
-  logger.info({
-    msg: 'accesslog',
-    path: headersInstance.get('next-url'),
-    referer: headersInstance.get('referer'),
-  })
-}
