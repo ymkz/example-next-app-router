@@ -3,7 +3,7 @@ declare module 'process' {
     namespace NodeJS {
       interface ProcessEnv {
         NODE_ENV: 'development' | 'test' | 'production'
-        ENVIRONMENT: 'local' | 'development' | 'staging' | 'production'
+        APP_ENV: 'local' | 'pr' | 'dev' | 'stg' | 'prod'
         USE_STUB: 'true' | 'false'
         JSONPLACEHOLDER_API_URL: string
       }

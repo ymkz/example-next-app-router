@@ -14,8 +14,7 @@ const sdk = new NodeSDK({
   metricReader: new PrometheusExporter({ port: 3001 }),
   resource: new Resource({
     [SemanticResourceAttributes.SERVICE_NAME]: 'example-service',
-    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]:
-      process.env.ENVIRONMENT,
+    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.APP_ENV,
   }),
 })
 
