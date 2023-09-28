@@ -75,7 +75,7 @@ export const getPost = async (
     const data = await response.json()
     return Result.success<Post>(data)
   } catch (err) {
-    incrementErrorCount('repositories.posts.getPosts')
+    incrementErrorCount('repositories.posts.getPost')
     logger.error(err, `Postの取得に失敗しました id=${id}`)
 
     return Result.failure<RepositoryFailure>({
