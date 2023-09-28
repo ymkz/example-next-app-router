@@ -1,6 +1,12 @@
 import Link from 'next/link'
 
+import { logger } from '~/utils/log'
+import { incrementAccessCount } from '~/utils/metrics'
+
 export default async function page() {
+  incrementAccessCount('/', 'GET')
+  logger.info('request incoming to /')
+
   return (
     <ul>
       <li>

@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 
 import { ErrorRender } from '~/components/error'
 import { getPosts } from '~/repositories/posts'
+import { logger } from '~/utils/log'
+import { incrementAccessCount } from '~/utils/metrics'
 
 export const metadata: Metadata = {
   title: 'Posts - タイトル',
 }
 
 export default async function page() {
+  incrementAccessCount('/posts', 'GET')
+  logger.info('request incoming to /posts')
+
   const posts = await getPosts()
 
   if (posts.isFailure) {

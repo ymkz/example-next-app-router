@@ -32,6 +32,10 @@ export const getPosts = async (): Promise<
 
     if (!response.ok) {
       const data = await response.json()
+
+      incrementErrorCount('repositories.posts.getPosts.error')
+      logger.error(data, `Post一覧の取得に失敗しました`)
+
       return Result.failure<RepositoryFailure>({
         status: response.status,
         data,
@@ -41,8 +45,8 @@ export const getPosts = async (): Promise<
     const data = await response.json()
     return Result.success<Post[]>(data)
   } catch (err) {
-    incrementErrorCount('repositories.posts.getPosts')
-    logger.error(err, `Post一覧の取得に失敗しました`)
+    incrementErrorCount('repositories.posts.getPosts.exception')
+    logger.error(err, `Post一覧の取得で例外が発生しました`)
 
     return Result.failure<RepositoryFailure>({
       status: 500,
@@ -66,6 +70,10 @@ export const getPost = async (
 
     if (!response.ok) {
       const data = await response.json()
+
+      incrementErrorCount('repositories.posts.getPost.error')
+      logger.error(data, `Postの取得に失敗しました id=${id}`)
+
       return Result.failure<RepositoryFailure>({
         status: response.status,
         data,
@@ -75,8 +83,8 @@ export const getPost = async (
     const data = await response.json()
     return Result.success<Post>(data)
   } catch (err) {
-    incrementErrorCount('repositories.posts.getPost')
-    logger.error(err, `Postの取得に失敗しました id=${id}`)
+    incrementErrorCount('repositories.posts.getPost.exception')
+    logger.error(err, `Postの取得で例外が発生しました id=${id}`)
 
     return Result.failure<RepositoryFailure>({
       status: 500,
@@ -100,6 +108,10 @@ export const createPost = async (
 
     if (!response.ok) {
       const data = await response.json()
+
+      incrementErrorCount('repositories.posts.createPost.error')
+      logger.error(data, `Postの作成に失敗しました`)
+
       return Result.failure<RepositoryFailure>({
         status: response.status,
         data,
@@ -109,8 +121,8 @@ export const createPost = async (
     const data = await response.json()
     return Result.success<Post>(data)
   } catch (err) {
-    incrementErrorCount('repositories.posts.createPost')
-    logger.error(err, `Postの作成に失敗しました`)
+    incrementErrorCount('repositories.posts.createPost.exception')
+    logger.error(err, `Postの作成で例外が発生しました`)
 
     return Result.failure<RepositoryFailure>({
       status: 500,
