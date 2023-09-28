@@ -1,5 +1,5 @@
 export const register = async () => {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
-    await import('~/helpers/opentelemetry')
+    await import('~/utils/opentelemetry')
   }
 }

@@ -6,10 +6,10 @@
 
 import axios from 'axios'
 
-import { logger } from '~/helpers/logger'
-import { incrementErrorCount } from '~/helpers/metrics'
 import type { Post } from '~/repositories/posts/interface'
 import { getPostStub, getPostsStub } from '~/repositories/posts/stub'
+import { logger } from '~/utils/log'
+import { incrementErrorCount } from '~/utils/metrics'
 
 export const getPosts = async (): Promise<Post[]> => {
   if (process.env.USE_STUB === 'true') {

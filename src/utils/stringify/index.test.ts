@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { countByCodePoint } from '~/helpers/string'
+import { countByCodePoint } from '~/utils/stringify'
 
 describe(countByCodePoint.name, () => {
   test.each([

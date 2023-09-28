@@ -1,7 +1,3 @@
-/**
- * @see https://azukiazusa.dev/blog/instrumenting-Node-js-applications-with-open-telemetry/
- */
-
 import { PrometheusExporter } from '@opentelemetry/exporter-prometheus'
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
 import { PinoInstrumentation } from '@opentelemetry/instrumentation-pino'
