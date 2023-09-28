@@ -1,4 +1,4 @@
-import type { Post } from '~/repositories/posts/interface'
+import type { Post } from '~/repositories/posts/type'
 
 export const getPostsStub = async (): Promise<Post[]> => {
   return [

@@ -6,8 +6,8 @@
 
 import axios from 'axios'
 
-import type { Post } from '~/repositories/posts/interface'
 import { getPostStub, getPostsStub } from '~/repositories/posts/stub'
+import type { Post } from '~/repositories/posts/type'
 import { logger } from '~/utils/log'
 import { incrementErrorCount } from '~/utils/metrics'
 

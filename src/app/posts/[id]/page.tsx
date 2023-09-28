@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 
 import { getPost } from '~/repositories/posts'
 
-interface PostPageProps {
+type PostPageProps = {
   readonly params: {
     id: string
   }

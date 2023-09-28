@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '~/app/global.scss'
 
-interface IndexLayoutProps {
+type IndexLayoutProps = {
   children: React.ReactNode
 }
 

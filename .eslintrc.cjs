@@ -1,4 +1,4 @@
-/** @type {import('eslint').ESLint.ConfigData} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
   extends: [
@@ -15,10 +15,14 @@ module.exports = {
       node: true,
     },
   },
-  plugins: ['unused-imports', 'sort-destructure-keys'],
+  plugins: ['unused-imports'],
   rules: {
-    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
     'react/jsx-sort-props': ['error', { callbacksLast: true }],
     'unused-imports/no-unused-imports': 'error',
     'import/newline-after-import': 'error',
@@ -29,10 +33,6 @@ module.exports = {
         alphabetize: { order: 'asc' },
         pathGroups: [{ pattern: '~/**', group: 'external', position: 'after' }],
       },
-    ],
-    'sort-destructure-keys/sort-destructure-keys': [
-      'error',
-      { caseSensitive: false },
     ],
   },
   overrides: [
