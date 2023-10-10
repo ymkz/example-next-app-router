@@ -6,15 +6,11 @@
 
 import { Result } from 'result-type-ts'
 
-import {
-  createPostStub,
-  getPostStub,
-  getPostsStub,
-} from '~/repositories/posts/stub'
-import type { CreatePostBody, Post } from '~/repositories/posts/type'
-import type { RepositoryFailure } from '~/utils/error'
-import { logger } from '~/utils/log'
-import { incrementErrorCount } from '~/utils/metrics'
+import { createPostStub, getPostStub, getPostsStub } from '~/infra/posts/stub'
+import type { CreatePostBody, Post } from '~/infra/posts/type'
+import type { RepositoryFailure } from '~/util/error'
+import { logger } from '~/util/log'
+import { incrementErrorCount } from '~/util/metric'
 
 export const getPosts = async (): Promise<
   Result<Post[], RepositoryFailure>

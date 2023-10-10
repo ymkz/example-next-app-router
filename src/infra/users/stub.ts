@@ -1,4 +1,4 @@
-import type { User } from '~/repositories/users/type'
+import type { User } from '~/infra/users/type'
 
 export const getUserStub = (): User => {
   return {

@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { ErrorRender } from '~/components/error'
-import { getPost } from '~/repositories/posts'
-import { logger } from '~/utils/log'
-import { incrementAccessCount } from '~/utils/metrics'
+import { getPost } from '~/infra/posts'
+import { ErrorRender } from '~/ui/error'
 
 export const metadata: Metadata = {
   title: 'Post - タイトル',
@@ -17,9 +15,6 @@ type Props = {
 }
 
 export default async function page({ params }: Props) {
-  incrementAccessCount('/posts/[id]', 'GET')
-  logger.info(`request incoming to /posts/${params.id}`)
-
   const post = await getPost(Number(params.id))
 
   if (post.isFailure) {

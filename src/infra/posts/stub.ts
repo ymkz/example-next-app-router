@@ -1,4 +1,4 @@
-import type { CreatePostBody, Post } from '~/repositories/posts/type'
+import type { CreatePostBody, Post } from '~/infra/posts/type'
 
 export const getPostsStub = (): Post[] => {
   return [

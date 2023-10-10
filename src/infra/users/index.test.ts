@@ -1,7 +1,7 @@
 import { Result } from 'result-type-ts'
 import { describe, expect, test, vi } from 'vitest'
 
-import { getUser } from '~/repositories/users'
+import { getUser } from '~/infra/users'
 
 describe(getUser.name, () => {
   test('API呼び出しに成功した場合、Result.Success型のデータを返す', async () => {

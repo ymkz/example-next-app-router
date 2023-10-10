@@ -1,4 +1,4 @@
-import type { RepositoryFailure } from '~/utils/error'
+import type { RepositoryFailure } from '~/util/error'
 
 type Props = {
   error: RepositoryFailure

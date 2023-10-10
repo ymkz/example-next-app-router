@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation'
 
-import { Footer } from '~/components/footer'
-import { Header } from '~/components/header'
-import { getUser } from '~/repositories/users'
+import { getUser } from '~/infra/users'
+import { Footer } from '~/ui/footer'
+import { Header } from '~/ui/header'
 
 type Props = {
   children: React.ReactNode

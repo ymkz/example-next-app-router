@@ -4,11 +4,11 @@
 
 import { Result } from 'result-type-ts'
 
-import { getUserStub } from '~/repositories/users/stub'
-import type { User } from '~/repositories/users/type'
-import type { RepositoryFailure } from '~/utils/error'
-import { logger } from '~/utils/log'
-import { incrementErrorCount } from '~/utils/metrics'
+import { getUserStub } from '~/infra/users/stub'
+import type { User } from '~/infra/users/type'
+import type { RepositoryFailure } from '~/util/error'
+import { logger } from '~/util/log'
+import { incrementErrorCount } from '~/util/metric'
 
 export const getUser = async (): Promise<Result<User, RepositoryFailure>> => {
   if (process.env.USE_STUB === 'true') {

@@ -19,3 +19,12 @@ const errorCounter = meter.createCounter('error', {
 export const incrementErrorCount = (errorCode = 'unknown') => {
   errorCounter.add(1, { error_code: errorCode })
 }
+
+const warnCounter = meter.createCounter('warn', {
+  description: 'Count number of warn by warn_code',
+  unit: 'counts',
+  valueType: ValueType.INT,
+})
+export const incrementWarnCount = (warnCode = 'unknown') => {
+  warnCounter.add(1, { warn_code: warnCode })
+}
